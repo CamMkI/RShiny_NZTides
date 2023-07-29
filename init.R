@@ -269,7 +269,7 @@ calcTides <-
 
         if (min(dt, na.rm = T) <= qdate & qdate <= max(dt, na.rm = T)) {
           qTime <- decimalTime(substr(qt, 9, 14))
-          if (t1 <= decimalTime("23:59") & t2 > decimalTime("23:59"))
+          if (t1 <= decimalTime("23:59") & t2 > decimalTime("23:59") & qTime < t1)
             qTime <- qTime + 24
           qHeight <- tideHeight(qTime, t1, t2, h1, h2)
           qTime <- heightTime(qHeight, t1, t2, h1, h2) + htOffset
